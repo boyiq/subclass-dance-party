@@ -20,8 +20,49 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
+
+.blink {
   border:10px solid red;
-  border-radius:10px;
+  /* border-radius:10px; */
   position:absolute;
+}
+
+.heart {
+  position: relative;
+  width: 100px;
+  height: 90px;
+}
+
+.expander {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: pink;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.cupcake {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  background-image: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/327/cupcake_1f9c1.png');
 }
