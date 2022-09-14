@@ -34,13 +34,31 @@ $(document).ready(function() {
       $(this).fadeOut('slow');
     });
 
-  });
+    $('.dancer').on('click', function(e) {
+      let x1 = $(this).position().top;
+      let y1 = $(this).position().left;
+      var currMin = Infinity;
+      var currMinIndex, target, distance;
+      for (let i = 0; i < window.dancers.length; i++) {
+        var x2 = window.dancers[i].top;
+        var y2 = window.dancers[i].left;
+        if (window.dancers[i] !== $(this)) {
+          distance = Math.pow(x1 - x2, 2) + Math.pow(y2 - y1, 2);
+          console.log(`distance: ${distance}`);
+          if (distance < currMin && distance > 10) {
+            currMin = distance;
+            currMinIndex = i;
+            target = window.dancers[i];
+          }
+        }
+      }
+      window.dancers[currMinIndex].lineUp();
+    });
+    $('.lineUp').on('click', function(event) {
+      for (let i = 0; i < window.dancers.length; i++) {
+        window.dancers[i].lineUp();
+      }
+    });
 
-
-  $('.lineUp').on('click', function(event) {
-    for (let i = 0; i < window.dancers.length; i++) {
-      window.dancers[i].lineUp();
-    }
   });
 });
-
